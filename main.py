@@ -4,7 +4,7 @@ import pandas
 
 st.set_page_config(layout="wide")
 
-st.title("The Best Company")
+st.header("The Best Company")
 content = """
    Hi, I am Abdulganiyu! I am a Software Engineer, teacher and the founder of GsureTech. 
     I graduated in 2019 with a Bachelor Degree in Computer Science from Bayero University Kano in Nigeria. 
@@ -15,26 +15,26 @@ content = """
 """
 st.write(content)
 
-st.header("Our Team")
+st.subheader("Our Team")
 
-col1, empty_col,col2, empty_col1_, col3 = st.columns([1.5,2,1.5,2,1.5])
+col1,col2, col3 = st.columns(3)
 
-df = pandas.read_csv("data.csv", sep=",")
+df = pandas.read_csv("data.csv")
 with col1:
-    for index, row in df[:3].iterrows():
-        st.write(row["first_name"] + "  " + row["last_name"])
+    for index, row in df[:4].iterrows():
+        st.write(f'{row["first_name"].title() + "  " + row["last_name"].title()}')
         st.write(row["role"])
         st.image("images/" + row["image"])
 
 with col2:
-    for index, row in df[3:6].iterrows():
-        st.write(row["first_name"] + "  " + row["last_name"])
+    for index, row in df[4:8].iterrows():
+        st.write(f'{row["first_name"].title() + "  " + row["last_name"].title()}')
         st.write(row["role"])
         st.image("images/" + row["image"])
 
 with col3:
-    for index, row in df[6:9].iterrows():
-        st.write(row["first_name"] + "  " + row["last_name"])
+    for index, row in df[8:12].iterrows():
+        st.write(f'{row["first_name"].title() + "  " + row["last_name"].title()}')
         st.write(row["role"])
         st.image("images/" + row["image"])
 
