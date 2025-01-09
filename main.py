@@ -16,3 +16,25 @@ content = """
 st.write(content)
 
 st.header("Our Team")
+
+col1, empty_col,col2, empty_col1_, col3 = st.columns([1.5,2,1.5,2,1.5])
+
+df = pandas.read_csv("data.csv", sep=",")
+with col1:
+    for index, row in df[:3].iterrows():
+        st.write(row["first_name"] + "  " + row["last_name"])
+        st.write(row["role"])
+        st.image("images/" + row["image"])
+
+with col2:
+    for index, row in df[3:6].iterrows():
+        st.write(row["first_name"] + "  " + row["last_name"])
+        st.write(row["role"])
+        st.image("images/" + row["image"])
+
+with col3:
+    for index, row in df[6:9].iterrows():
+        st.write(row["first_name"] + "  " + row["last_name"])
+        st.write(row["role"])
+        st.image("images/" + row["image"])
+
